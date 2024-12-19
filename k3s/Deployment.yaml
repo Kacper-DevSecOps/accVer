@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: access-verifier
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: access-verifier
+  template:
+    metadata:
+      labels:
+        app: access-verifier
+    spec:
+      containers:
+      - name: access-verifier
+        image: access-verifier:latest
+        ports:
+        - containerPort: 8080

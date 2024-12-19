@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: access-verifier-ingress
+spec:
+  rules:
+  - host: access-verifier.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: access-verifier
+            port:
+              number: 80
